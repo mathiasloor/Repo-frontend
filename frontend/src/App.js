@@ -1,14 +1,14 @@
-{/* Importar Componentes de React */}
+/* Importar Componentes de React */
 import React        from 'react';
 import { observer } from 'mobx-react';
-{/* Importar Componentes Creados por el Desarrollador */}
+/* Importar Componentes Creados por el Desarrollador */
 import UserStore    from './stores/UserStore';
 import LoginForm    from './LoginForm';
 import InputField   from './InputField';
 import SubmitButton from './SubmitButton';
 import './App.css';
 
-{/* Creaar Clase App */}
+/* Creaar Clase App */
 class App extends React.Component {
 
   /* Recuperación de Datos Cuando se Monta un Componente */
@@ -116,5 +116,5 @@ class App extends React.Component {
 }
 }
 
-{/*  Exportar una sola clase, función o primitiva desde un archivo de script. */}
+/*  Exportar una sola clase, función o primitiva desde un archivo de script. */
 export default observer(App);
