@@ -14,7 +14,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'myapp'
+    database: 'scheduler_uees'
 });
 
 db.connect(function(err) {
@@ -45,7 +45,7 @@ app.use(session({
 new Router(app,db);
 
 app.get('/',function(req, res) {
-    res.sendFile(path.join(:dirname, 'build', 'index.html'));
+    res.sendFile(path.join(_dirname, 'build', 'index.html'));
 });
 
 app.listen(3000);
