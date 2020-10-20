@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 
-class Router {
-
+class Router 
+{
     construct(app, db)
     {   this.login(app, db);
         this.logout(app, db);
@@ -10,7 +10,7 @@ class Router {
 
     login(app, db)
     {
-        app.post('/login',(req, res) 
+        app.post('/login',(req, res) =>
         {   let username = req.body.username;
             let password = req.body.password;
 
@@ -71,11 +71,9 @@ class Router {
                 }
             
             });
-
-
-    });
+        });
     
-    
+    }
 
     logout(app, db)
     {
@@ -120,24 +118,27 @@ class Router {
                             username: data[0].username
                         })
 
-                    return true;
+                        return true;
 
-                } else 
-                {   res.json(
-                    {   success: false
-                    })
-                }
+                    } 
+                    else 
+                    {   res.json(
+                            {   success: false
+                            })
+                    }
         
-            });
+                });
 
-        }
+            }
 
-        else
-        {   res.json(
-            {   success: false
-            })
-        }
-    });   
+            else
+            {   res.json(
+                {   success: false
+                })
+            }
+        });
+    }
+
 }
 
-module.exports = Router; 
+module.exports = Router;
