@@ -1,13 +1,17 @@
+{/* Importar Componentes de React */}
 import React        from 'react';
 import { observer } from 'mobx-react';
+{/* Importar Componentes Creados por el Desarrollador */}
 import UserStore    from './stores/UserStore';
 import LoginForm    from './LoginForm';
 import InputField   from './InputField';
 import SubmitButton from './SubmitButton';
 import './App.css';
 
+{/* Creaar Clase App */}
 class App extends React.Component {
 
+  {/* Recuperación de Datos Cuando se Monta un Componente */}
   async componentDidMount() {
 
     try {
@@ -40,6 +44,7 @@ class App extends React.Component {
     }
   }
 
+  {/* Método que se Llamará Cuando el Usuario Haga Clic en el Botón de Cierre de Sesión */}
   async doLogout() {
 
     try {
@@ -67,9 +72,9 @@ class App extends React.Component {
     }
   }
 
-
-
-  render(){
+  {/* Renderiza un elemento React al DOM en el contenedor suministrado y retorna 
+    una referencia al componente (o devuelve null para componentes sin estado). */}
+    render(){
 
     if (UserStore.loading) {
       return(
@@ -111,4 +116,5 @@ class App extends React.Component {
 }
 }
 
+{/*  Exportar una sola clase, función o primitiva desde un archivo de script. */}
 export default observer(App);
