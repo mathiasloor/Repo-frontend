@@ -11,7 +11,7 @@ import './App.css';
 {/* Creaar Clase App */}
 class App extends React.Component {
 
-  {/* Recuperación de Datos Cuando se Monta un Componente */}
+  /* Recuperación de Datos Cuando se Monta un Componente */
   async componentDidMount() {
 
     try {
@@ -44,7 +44,7 @@ class App extends React.Component {
     }
   }
 
-  {/* Método que se Llamará Cuando el Usuario Haga Clic en el Botón de Cierre de Sesión */}
+  /* Método que se Llamará Cuando el Usuario Haga Clic en el Botón de Cierre de Sesión */
   async doLogout() {
 
     try {
@@ -72,8 +72,8 @@ class App extends React.Component {
     }
   }
 
-  {/* Renderiza un elemento React al DOM en el contenedor suministrado y retorna 
-    una referencia al componente (o devuelve null para componentes sin estado). */}
+  /* Renderiza un elemento React al DOM en el contenedor suministrado y retorna 
+    una referencia al componente (o devuelve null para componentes sin estado). */
     render(){
 
     if (UserStore.loading) {
