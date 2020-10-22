@@ -5,83 +5,101 @@ import UserStore from './stores/UserStore';
 
 class LoginForm extends React.Component {
 
-constructor(props){
-  super(props);
-  this.state = {
-    username: '',
-    password: '',
-    buttonDisabled: false 
-  }
+constructor(props)
+{   super(props);
+    this.state = 
+    {
+      username: '',
+      password: '',
+      buttonDisabled: false 
+    }
 }
 
-setInputValue(property, val) {
-  val = val.trim();
-  if (val.lenght > 12){
-    return;
-  }
-  this.setState({
-    [property]: val
-  })
+setInputValue(property, val) 
+{   val = val.trim();
+    if (val.lenght > 12)
+    {   
+        return;
+    }
+    this.setState(
+    {   
+        [property]: val
+    })
 }
 
-resetForm() {
-  this.setState({
-    username: '',
-    password: '',
-    buttonDisabled: false
-  })
+resetForm() 
+{   this.setState(
+    {
+      username: '',
+      password: '',
+      buttonDisabled: false
+    })
 }
 
-async doLogin() {
+async doLogin() 
+{
 
-  if (!this.state.username){
-    return;
-  }
-  if (!this.state.password){
-    return;
-  }
-
-  this.setState({
-    buttonDisabled: true
-  })
-
-  try {
-
-    let res = await fetch('/login', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password
-      })
-    });
-
-    let result = await res.json();
-    if (result && result.success) {
-      UserStore.isLoggedIn = true;
-      UserStore.username = result.username;
+    if (!this.state.username)
+    {
+      return;
+    }
+    if (!this.state.password)
+    {
+      return;
     }
 
-    else if (result && result.success === false){
-      this.resetForm();
-      alert(result.msg);
-    }
-  }
+    this.setState(
+    {
+        buttonDisabled: true
+    })
 
-  catch(e) {
-    console.log(e);
-    this.resetForm();
-  }
+    try 
+    {
+        let res = await fetch('/login', 
+        {
+            method: 'post',
+            headers: 
+            {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+            {
+              username: this.state.username,
+              password: this.state.password
+            })
+            
+        });
+        
+ 
+        let result = await res.json();
+              
+        if (result && result.success) 
+        {
+            UserStore.isLoggedIn = true;
+            UserStore.username = result.username;
+        }
+
+        else if (result && result.success === false)
+        {
+            this.resetForm();
+            alert(result.msg);
+        }
+    }
+
+    catch(e) 
+    {
+        console.log(e);
+        this.resetForm();
+    }
 
 }
 
-  render(){
+render()
+{
 
     return (
-      <div className="loginForm">
+        <div className="loginForm">
 
         Log in
         <InputField

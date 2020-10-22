@@ -15,7 +15,7 @@ class Router
             let password = req.body.password;
 
             username = username.toLowerCase();
-
+           
             if (username.length > 12 || password.length > 12 ) 
             {   res.json(
                 {
@@ -44,7 +44,7 @@ class Router
                         if (verified) 
                         {                        
                             req.session.userID = data[0].id;
-
+                           
                             res.json(
                             {   success: true,
                                 username: data[0].username
